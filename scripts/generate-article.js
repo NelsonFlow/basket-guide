@@ -76,6 +76,7 @@ Réponds uniquement avec le contenu Markdown de l'article, sans frontmatter.`;
         'Content-Type': 'application/json',
         'x-api-key': process.env.ANTHROPIC_API_KEY,
         'anthropic-version': '2023-06-01',
+        'Content-Length': Buffer.byteLength(body),
       },
     };
 
@@ -85,9 +86,14 @@ Réponds uniquement avec le contenu Markdown de l'article, sans frontmatter.`;
       res.on('end', () => {
         try {
           const parsed = JSON.parse(data);
-          resolve(parsed.content[0].text);
+          console.log('Réponse API:', JSON.stringify(parsed).substring(0, 200));
+          if (parsed.content && parsed.content[0] && parsed.content[0].text) {
+            resolve(parsed.content[0].text);
+          } else {
+            reject(new Error('Réponse inattendue: ' + JSON.stringify(parsed)));
+          }
         } catch (e) {
-          reject(e);
+          reject(new Error('Erreur parsing: ' + e.message + ' Data: ' + data.substring(0, 200)));
         }
       });
     });
