@@ -25,6 +25,6 @@ jobs:
         run: |
           git config user.name "BasketGuide Bot"
           git config user.email "bot@basketguide.fr"
-          git add posts/
+          git add posts/ products/
           git diff --staged --quiet || git commit -m "Nouvel article généré automatiquement"
           git push
