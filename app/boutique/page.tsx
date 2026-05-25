@@ -1,9 +1,3 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import Link from "next/link";
-import Image from "next/image";
-
 const produits = [
   {
     categorie: "Chaussures",
@@ -92,73 +86,39 @@ const produits = [
   },
 ];
 
-export default function Home() {
+export default function Boutique() {
   return (
     <div>
-      {/* HERO */}
-      <section style={{
-        position: "relative",
-        borderRadius: "12px",
-        overflow: "hidden",
-        marginBottom: "64px",
-        height: "420px",
-      }}>
-        <Image
-          src="/hero.jpg"
-          alt="Basketball"
-          fill
-          style={{ objectFit: "cover", objectPosition: "center" }}
-          priority
-        />
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          background: "linear-gradient(to right, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.1) 100%)",
-        }} />
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          padding: "48px",
+      <div style={{ marginBottom: "48px" }}>
+        <p style={{
+          fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
+          fontSize: "11px",
+          fontWeight: 600,
+          textTransform: "uppercase",
+          letterSpacing: "1px",
+          color: "#c0392b",
+          marginBottom: "10px",
         }}>
-          <p style={{
-            fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
-            fontSize: "11px",
-            fontWeight: 600,
-            textTransform: "uppercase",
-            letterSpacing: "1.5px",
-            color: "#c0392b",
-            marginBottom: "14px",
-          }}>
-            Comparatifs indépendants
-          </p>
-          <h1 style={{
-            fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
-            fontSize: "38px",
-            fontWeight: 900,
-            letterSpacing: "-1px",
-            lineHeight: "1.15",
-            color: "white",
-            maxWidth: "480px",
-            marginBottom: "16px",
-          }}>
-            Le guide de référence pour l'équipement basket
-          </h1>
-          <p style={{
-            fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
-            fontSize: "16px",
-            color: "rgba(255,255,255,0.75)",
-            maxWidth: "400px",
-            lineHeight: "1.6",
-          }}>
-            Des tests et comparatifs détaillés pour choisir chaussures, ballons et accessoires.
-          </p>
-        </div>
-      </section>
+          Sélection BasketGuide
+        </p>
+        <h1 style={{
+          fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
+          fontSize: "32px",
+          fontWeight: 900,
+          letterSpacing: "-1px",
+          marginBottom: "12px",
+        }}>
+          Notre boutique
+        </h1>
+        <p style={{
+          fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
+          fontSize: "16px",
+          color: "#666",
+        }}>
+          Une sélection des meilleurs produits basket, disponibles sur Amazon.
+        </p>
+      </div>
 
-      {/* BOUTIQUE */}
       {produits.map((section) => (
         <div key={section.categorie} style={{ marginBottom: "64px" }}>
           <h2 style={{
