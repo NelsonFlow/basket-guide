@@ -63,7 +63,7 @@ L'article doit :
 Réponds uniquement avec le contenu Markdown de l'article, sans frontmatter.`;
 
     const body = JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
+      model: 'claude-sonnet-4-5-20251022',
       max_tokens: 1500,
       messages: [{ role: 'user', content: prompt }],
     });
