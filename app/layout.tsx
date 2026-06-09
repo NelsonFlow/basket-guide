@@ -5,6 +5,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "BasketGuide — Comparatifs équipement basket",
   description: "Comparatifs et tests indépendants pour choisir le meilleur équipement de basket : chaussures, ballons, accessoires.",
+  verification: {
+    google: "AS5s1yQ6gGhbh4vafrbITYVegACmTU1BLdgxMWfcmH4",
+  },
 };
 
 export default function RootLayout({
